@@ -1,0 +1,39 @@
+def s(x):
+    n = x
+    su = 0
+
+    while n > 0:
+        digit = n % 10
+        su += digit
+        n //= 10
+
+    return su
+
+
+def solution(arr):
+   
+
+    ans = 0
+    d = {}
+
+    for nu in arr:
+
+        z = s(nu)
+
+        if z in d:
+            ans = max(ans, d[z] + nu)
+            if nu>d[z]:
+                d[z]=nu
+        else:
+            d[z]=nu
+
+        
+
+    if ans==0:
+        return -1
+    else:
+        return ans
+
+
+arr = [42, 33, 60]
+print(solution(arr))
